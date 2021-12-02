@@ -1,3 +1,7 @@
+body {
+  background-color: whitesmoke;
+}
+
 .container {
   display: flex;
   justify-content: space-around;
