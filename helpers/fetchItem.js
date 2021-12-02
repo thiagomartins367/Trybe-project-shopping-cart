@@ -5,7 +5,6 @@ const fetchItem = async (ItemID) => {
   // Exemplo: "https://api.mercadolibre.com/items/MLB1341706310"
   let response = await fetch(`https://api.mercadolibre.com/items/${ItemID}`);
   let itemObject = await response.json();
-  // console.log(itemObject);
   return itemObject;
 };
 
