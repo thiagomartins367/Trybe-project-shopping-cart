@@ -1,4 +1,4 @@
-const saveCartItems = () => {
+const saveCartItems = (paramTest) => {
   
   // seu código aqui
   // localStorage.getItem e localStorage.setItem
@@ -7,10 +7,13 @@ const saveCartItems = () => {
   cartsItemsLi.forEach((element) => {
     arrayCartsItemsLi.push(`${element.outerHTML}✄`);
   });
-  localStorage.clear();
-  localStorage.setItem('cartItems', arrayCartsItemsLi);
+  if (paramTest === undefined) {
+    localStorage.clear();
+    localStorage.setItem('cartItems', arrayCartsItemsLi);
+  } else {
+    localStorage.setItem('cartItems', paramTest);
+  }
 };
-
 
 if (typeof module !== 'undefined') {
   module.exports = saveCartItems;
