@@ -78,8 +78,11 @@ const sumSubtotal = () => {
 window.onload = () => {
   const addChildrenSectionItems = async () => {
     const items = document.querySelector('.items');
-    const results = await fetchProducts();
-    results.forEach(element => {
+    items.innerHTML += `<span class='loading'>carregando...</span>`;
+    const requisitionObject = await fetchProducts('computador');
+    const loading = document.querySelector('.loading');
+    items.removeChild(loading);
+    requisitionObject.results.forEach(element => {
       items.appendChild(createProductItemElement(element));
     });
     funcCartItems();
@@ -91,7 +94,11 @@ window.onload = () => {
     const itemButton = document.querySelectorAll('.item__add');
     itemButton.forEach((element) => {
       element.addEventListener('click', async (event) => {
+        const cartSubtotal = document.querySelector('.cart-subtotal');
+        cartSubtotal.innerHTML += `<span class='loading'>carregando...</span>`;
         const itemObject = await fetchItem(event.target.classList[1]);
+        const loading = document.querySelector('.loading');
+        cartSubtotal.removeChild(loading);
         cartItems.appendChild(createCartItemElement(itemObject));
         saveCartItems();
         sumSubtotal();

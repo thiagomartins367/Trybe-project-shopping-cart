@@ -1,19 +1,25 @@
-const fetchProducts = async () => {
+const constExports = {};
+
+const fetchProducts = async (query) => {
 
   // seu código aqui
   //"https://api.mercadolibre.com/sites/MLB/search?q=$QUERY"
   //"https://api.mercadolibre.com/sites/MLB/search?q=computador"
-  const items = document.querySelector('.items');
-  items.innerHTML += `<span class='loading'>carregando...</span>`;
-  let response = await fetch('https://api.mercadolibre.com/sites/MLB/search?q=computador');
-  let object = await response.json();
-  const loading = document.querySelector('.loading');
-  items.removeChild(loading);
-  return object.results;
+  let object;
+  if (query !== undefined) {
+    let response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${query}`);
+    constExports['responseProducts'] = `https://api.mercadolibre.com/sites/MLB/search?q=${query}`;
+    object = await response.json();
+  } else {
+    new Error('You must provide an url');
+    object = {};
+  }
+  return object;
 };
 
 if (typeof module !== 'undefined') {
   module.exports = {
     fetchProducts,
+    constExports,
   };
 }
