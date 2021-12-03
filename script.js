@@ -48,6 +48,7 @@ function createCartItemElement({ id:sku, title:name, price:salePrice }) {
   return li;
 }
 
+//Function Feita por THIAGO MARTINS
 const sumSubtotal = () => {
   const cartItem = document.querySelectorAll('.cart__item');
   const totalPrice = document .querySelector('.total-price');
@@ -82,6 +83,7 @@ window.onload = () => {
       items.appendChild(createProductItemElement(element));
     });
     funcCartItems();
+    cleanShoppingCart();
   };
   
   const funcCartItems = async () => {
@@ -105,6 +107,15 @@ window.onload = () => {
     cartsItemsLi.forEach((element) => {
       element.addEventListener('click', cartItemClickListener);
     });
-  }
+  };
+
+  const cleanShoppingCart = () => {
+    const emptyCart = document.querySelector('.empty-cart');
+    const cartItems = document.querySelector('.cart__items');
+    emptyCart.addEventListener('click', () => {
+      cartItems.innerText = '';
+      saveCartItems();
+    });
+  };
   addChildrenSectionItems();
 };
