@@ -1,4 +1,4 @@
-const constExports = {};
+const exportsFetchProducts = {};
 
 const fetchProducts = async (query) => {
 
@@ -8,7 +8,7 @@ const fetchProducts = async (query) => {
   let object;
   if (query !== undefined) {
     let response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${query}`);
-    constExports['responseProducts'] = `https://api.mercadolibre.com/sites/MLB/search?q=${query}`;
+    exportsFetchProducts['responseProducts'] = `https://api.mercadolibre.com/sites/MLB/search?q=${query}`;
     object = await response.json();
   } else {
     new Error('You must provide an url');
@@ -20,6 +20,6 @@ const fetchProducts = async (query) => {
 if (typeof module !== 'undefined') {
   module.exports = {
     fetchProducts,
-    constExports,
+    exportsFetchProducts,
   };
 }
