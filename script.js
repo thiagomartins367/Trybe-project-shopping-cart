@@ -17,7 +17,7 @@ function createCustomElement(sku, element, className, innerText) {
   return e;
 }
 
-function createProductItemElement({ id:sku, title:name, thumbnail:image }) {
+function createProductItemElement({ id: sku, title: name, thumbnail: image }) {
   const section = document.createElement('section');
   section.className = 'item';
   section.appendChild(createCustomElement(sku, 'span', 'item__sku', sku));
@@ -31,25 +31,7 @@ function getSkuFromProductItem(item) {
   return item.querySelector('span.item__sku').innerText;
 }
 
-function cartItemClickListener(event) {
-
-  // coloque seu código aqui
-  event.target.remove();
-  localStorage.clear();
-  saveCartItems();
-  sumSubtotal();
-}
-
-function createCartItemElement({ id:sku, title:name, price:salePrice }) {
-  const li = document.createElement('li');
-  li.className = 'cart__item';
-  li.classList.add(sku);
-  li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
-  li.addEventListener('click', cartItemClickListener);
-  return li;
-}
-
-//Function Feita por THIAGO MARTINS
+// Function Feita por THIAGO MARTINS
 const sumSubtotal = () => {
   const cartItem = document.querySelectorAll('.cart__item');
   const totalPrice = document .querySelector('.total-price');
@@ -57,7 +39,7 @@ const sumSubtotal = () => {
   let valor = false;
   let string = '';
   cartItem.forEach((element) => {
-    let elementString = element.outerHTML;
+    const elementString = element.outerHTML;
     for (let index = 0; index < elementString.length; index += 1) {
       if (elementString[index] === '$' || valor === true) {
         if (elementString[index] === '<') {
@@ -74,6 +56,24 @@ const sumSubtotal = () => {
   });
   subTotal = Math.round(subTotal * 100) / 100;
   totalPrice.innerText = `${subTotal}`;
+}
+
+function cartItemClickListener(event) {
+
+  // coloque seu código aqui
+  event.target.remove();
+  localStorage.clear();
+  saveCartItems();
+  sumSubtotal();
+}
+
+function createCartItemElement({ id: sku, title: name, price: salePrice }) {
+  const li = document.createElement('li');
+  li.className = 'cart__item';
+  li.classList.add(sku);
+  li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
+  li.addEventListener('click', cartItemClickListener);
+  return li;
 }
 
 window.onload = () => {

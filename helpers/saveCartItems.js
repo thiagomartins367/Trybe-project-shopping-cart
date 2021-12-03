@@ -8,7 +8,7 @@ const saveCartItems = (paramTest) => {
     cartsItemsLi = [paramTest];
   }
   cartsItemsLi.forEach((element) => {
-    arrayCartsItemsLi.push(`${paramTest ? element : element.outerHTML + '✄'}`);
+    arrayCartsItemsLi.push(`${paramTest ? element : `${element.outerHTML}✄`}`);
   });
   localStorage.setItem('cartItems', arrayCartsItemsLi);
 };

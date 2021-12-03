@@ -1,3 +1,10 @@
+const insertDataSaved = (arrayCartsItemsLi) => {
+  const cartItems = document.querySelector('.cart__items');
+  arrayCartsItemsLi.forEach((element) => {
+    cartItems.innerHTML += element;
+  });
+};
+
 const getSavedCartItems = () => {
   if (localStorage.getItem('cartItems') !== null) {
     let getLocalStorage = localStorage.getItem('cartItems');
@@ -17,13 +24,6 @@ const getSavedCartItems = () => {
     }
     insertDataSaved(arrayCartsItemsLi);
   }
-};
-
-const insertDataSaved = (arrayCartsItemsLi) => {
-  const cartItems = document.querySelector('.cart__items');
-  arrayCartsItemsLi.forEach(element => {
-    cartItems.innerHTML += element;
-  });
 };
 
 if (typeof module !== 'undefined') {
