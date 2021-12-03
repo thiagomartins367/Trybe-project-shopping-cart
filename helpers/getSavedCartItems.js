@@ -1,6 +1,9 @@
 const getSavedCartItems = () => {
   if (localStorage.getItem('cartItems') !== null) {
-    const getLocalStorage = localStorage.getItem('cartItems');
+    let getLocalStorage = localStorage.getItem('cartItems');
+    if (getLocalStorage === undefined) {
+      getLocalStorage = '<li>$0</li>✄';
+    }
     const arrayCartsItemsLi = [];
     let stringItemLi = '';
     for (let index = 0; index < getLocalStorage.length; index += 1) {

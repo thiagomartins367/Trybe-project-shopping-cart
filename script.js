@@ -35,6 +35,7 @@ function cartItemClickListener(event) {
 
   // coloque seu código aqui
   event.target.remove();
+  localStorage.clear();
   saveCartItems();
   sumSubtotal();
 }
@@ -100,6 +101,7 @@ window.onload = () => {
         const loading = document.querySelector('.loading');
         cartSubtotal.removeChild(loading);
         cartItems.appendChild(createCartItemElement(itemObject));
+        localStorage.clear();
         saveCartItems();
         sumSubtotal();
       });
@@ -121,6 +123,7 @@ window.onload = () => {
     const cartItems = document.querySelector('.cart__items');
     emptyCart.addEventListener('click', () => {
       cartItems.innerText = '';
+      localStorage.clear();
       saveCartItems();
     });
   };
