@@ -1,5 +1,4 @@
 const saveCartItems = (paramTest) => {
-  
   // seu código aqui
   // localStorage.getItem e localStorage.setItem
   let cartsItemsLi = document.querySelectorAll('.cart__item');

@@ -34,7 +34,7 @@ function getSkuFromProductItem(item) {
 // Function Feita por THIAGO MARTINS
 const sumSubtotal = () => {
   const cartItem = document.querySelectorAll('.cart__item');
-  const totalPrice = document .querySelector('.total-price');
+  const totalPrice = document.querySelector('.total-price');
   let subTotal = 0;
   let valor = false;
   let string = '';
@@ -51,15 +51,14 @@ const sumSubtotal = () => {
     }
     string = string.replace('$', '');
     subTotal += parseFloat(string);
-    string ='';
-    valor = false
+    string = '';
+    valor = false;
   });
   subTotal = Math.round(subTotal * 100) / 100;
   totalPrice.innerText = `${subTotal}`;
-}
+};
 
 function cartItemClickListener(event) {
-
   // coloque seu código aqui
   event.target.remove();
   localStorage.clear();
@@ -77,26 +76,20 @@ function createCartItemElement({ id: sku, title: name, price: salePrice }) {
 }
 
 window.onload = () => {
-  const addChildrenSectionItems = async () => {
-    const items = document.querySelector('.items');
-    items.innerHTML += `<span class='loading'>carregando...</span>`;
-    const requisitionObject = await fetchProducts('computador');
-    const loading = document.querySelector('.loading');
-    items.removeChild(loading);
-    requisitionObject.results.forEach(element => {
-      items.appendChild(createProductItemElement(element));
+  const removeProductFromCart = () => {
+    const cartsItemsLi = document.querySelectorAll('.cart__item');
+    cartsItemsLi.forEach((element) => {
+      element.addEventListener('click', cartItemClickListener);
     });
-    funcCartItems();
-    cleanShoppingCart();
   };
-  
+
   const funcCartItems = async () => {
     const cartItems = document.querySelector('.cart__items');
     const itemButton = document.querySelectorAll('.item__add');
     itemButton.forEach((element) => {
       element.addEventListener('click', async (event) => {
         const cartSubtotal = document.querySelector('.cart-subtotal');
-        cartSubtotal.innerHTML += `<span class='loading'>carregando...</span>`;
+        cartSubtotal.innerHTML += '<span class="loading">carregando...</span>';
         const itemObject = await fetchItem(event.target.classList[1]);
         const loading = document.querySelector('.loading');
         cartSubtotal.removeChild(loading);
@@ -111,13 +104,6 @@ window.onload = () => {
     removeProductFromCart();
   };
 
-  const removeProductFromCart = () => {
-    const cartsItemsLi = document.querySelectorAll('.cart__item');
-    cartsItemsLi.forEach((element) => {
-      element.addEventListener('click', cartItemClickListener);
-    });
-  };
-
   const cleanShoppingCart = () => {
     const emptyCart = document.querySelector('.empty-cart');
     const cartItems = document.querySelector('.cart__items');
@@ -127,5 +113,19 @@ window.onload = () => {
       saveCartItems();
     });
   };
+
+  const addChildrenSectionItems = async () => {
+    const items = document.querySelector('.items');
+    items.innerHTML += '<span class="loading">carregando...</span>';
+    const requisitionObject = await fetchProducts('computador');
+    const loading = document.querySelector('.loading');
+    items.removeChild(loading);
+    requisitionObject.results.forEach((element) => {
+      items.appendChild(createProductItemElement(element));
+    });
+    funcCartItems();
+    cleanShoppingCart();
+  };
+
   addChildrenSectionItems();
 };
