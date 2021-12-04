@@ -91,7 +91,6 @@ function createCartItemElement({ id: sku, title: name, price: salePrice }) {
   return li;
 }
 
-
 const removeProductFromCart = () => {
   const cartsItemsLi = document.querySelectorAll('.cart__item');
   cartsItemsLi.forEach((element) => {
@@ -127,6 +126,7 @@ const cleanShoppingCart = () => {
     cartItems.innerText = '';
     localStorage.clear();
     saveCartItems();
+    sumSubtotal();
   });
 };
 
