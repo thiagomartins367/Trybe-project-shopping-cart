@@ -27,9 +27,9 @@ function createProductItemElement({ id: sku, title: name, thumbnail: image }) {
   return section;
 }
 
-function getSkuFromProductItem(item) {
-  return item.querySelector('span.item__sku').innerText;
-}
+// function getSkuFromProductItem(item) {
+//   return item.querySelector('span.item__sku').innerText;
+// }
 
 let valor = false;
 let string = '';
@@ -67,7 +67,6 @@ const sumSubtotal = () => {
     sumSubtotalFor();
     string = string.replace('$', '');
     string = string.replace('<', '');
-    console.log(string)
     subTotal += parseFloat(string);
     string = '';
     valor = false;
