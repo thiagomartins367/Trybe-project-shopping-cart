@@ -18,7 +18,7 @@ const getSavedCartItemsForIf = () => {
       stringItemLi += getLocalStorage[index];
     }
   }
-}
+};
 
 const getSavedCartItems = () => {
   if (localStorage.getItem('cartItems') !== null) {

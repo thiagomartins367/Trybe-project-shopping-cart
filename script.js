@@ -57,7 +57,6 @@ const sumSubtotalFor = () => {
   index1 = 0;
 };
 
-// Function Feita por THIAGO MARTINS
 const sumSubtotal = () => {
   const cartItemSumSubTotal = document.querySelectorAll('.cart__item');
   const totalPrice = document.querySelector('.total-price');
@@ -92,45 +91,46 @@ function createCartItemElement({ id: sku, title: name, price: salePrice }) {
   return li;
 }
 
-window.onload = () => {
-  const removeProductFromCart = () => {
-    const cartsItemsLi = document.querySelectorAll('.cart__item');
-    cartsItemsLi.forEach((element) => {
-      element.addEventListener('click', cartItemClickListener);
-    });
-  };
 
-  const funcCartItems = async () => {
-    const cartItems = document.querySelector('.cart__items');
-    const itemButton = document.querySelectorAll('.item__add');
-    itemButton.forEach((element) => {
-      element.addEventListener('click', async (event) => {
-        const cartSubtotal = document.querySelector('.cart-subtotal');
-        cartSubtotal.innerHTML += '<span class="loading">carregando...</span>';
-        const itemObject = await fetchItem(event.target.classList[1]);
-        const loading = document.querySelector('.loading');
-        cartSubtotal.removeChild(loading);
-        cartItems.appendChild(createCartItemElement(itemObject));
-        localStorage.clear();
-        saveCartItems();
-        sumSubtotal();
-      });
-    });
-    getSavedCartItems();
-    sumSubtotal();
-    removeProductFromCart();
-  };
+const removeProductFromCart = () => {
+  const cartsItemsLi = document.querySelectorAll('.cart__item');
+  cartsItemsLi.forEach((element) => {
+    element.addEventListener('click', cartItemClickListener);
+  });
+};
 
-  const cleanShoppingCart = () => {
-    const emptyCart = document.querySelector('.empty-cart');
-    const cartItems = document.querySelector('.cart__items');
-    emptyCart.addEventListener('click', () => {
-      cartItems.innerText = '';
+const funcCartItems = async () => {
+  const cartItems = document.querySelector('.cart__items');
+  const itemButton = document.querySelectorAll('.item__add');
+  itemButton.forEach((element) => {
+    element.addEventListener('click', async (event) => {
+      const cartSubtotal = document.querySelector('.cart-subtotal');
+      cartSubtotal.innerHTML += '<span class="loading">carregando...</span>';
+      const itemObject = await fetchItem(event.target.classList[1]);
+      const loading = document.querySelector('.loading');
+      cartSubtotal.removeChild(loading);
+      cartItems.appendChild(createCartItemElement(itemObject));
       localStorage.clear();
       saveCartItems();
+      sumSubtotal();
     });
-  };
+  });
+  getSavedCartItems();
+  sumSubtotal();
+  removeProductFromCart();
+};
 
+const cleanShoppingCart = () => {
+  const emptyCart = document.querySelector('.empty-cart');
+  const cartItems = document.querySelector('.cart__items');
+  emptyCart.addEventListener('click', () => {
+    cartItems.innerText = '';
+    localStorage.clear();
+    saveCartItems();
+  });
+};
+
+window.onload = () => {
   const addChildrenSectionItems = async () => {
     const items = document.querySelector('.items');
     items.innerHTML += '<span class="loading">carregando...</span>';
@@ -143,6 +143,5 @@ window.onload = () => {
     funcCartItems();
     cleanShoppingCart();
   };
-
   addChildrenSectionItems();
 };
