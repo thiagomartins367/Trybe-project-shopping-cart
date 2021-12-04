@@ -34,17 +34,28 @@ function getSkuFromProductItem(item) {
 let valor = false;
 let string = '';
 let elementString;
+let breakFor = false;
+let index1 = 0;
+const sumSubtotalForIf = () => {
+  if (elementString[index1] === '$' || valor === true) {
+    if (elementString[index1] === '<') {
+      breakFor = true;
+    }
+    valor = true;
+    string += elementString[index1];
+  }
+};
+
 const sumSubtotalFor = () => {
-  for (let index = 0; index < elementString.length; index += 1) {
-    if (elementString[index] === '$' || valor === true) {
-      if (elementString[index] === '<') {
-        break;
-      }
-      valor = true;
-      string += elementString[index];
+  for (index1 = 0; index1 < elementString.length; index1 += 1) {
+    sumSubtotalForIf();
+    if (breakFor === true) {
+      breakFor = false;
+      break;
     }
   }
-}
+  index1 = 0;
+};
 
 // Function Feita por THIAGO MARTINS
 const sumSubtotal = () => {
@@ -55,6 +66,8 @@ const sumSubtotal = () => {
     elementString = element.outerHTML;
     sumSubtotalFor();
     string = string.replace('$', '');
+    string = string.replace('<', '');
+    console.log(string)
     subTotal += parseFloat(string);
     string = '';
     valor = false;
