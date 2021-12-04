@@ -31,24 +31,29 @@ function getSkuFromProductItem(item) {
   return item.querySelector('span.item__sku').innerText;
 }
 
+let valor = false;
+let string = '';
+let elementString;
+const sumSubtotalFor = () => {
+  for (let index = 0; index < elementString.length; index += 1) {
+    if (elementString[index] === '$' || valor === true) {
+      if (elementString[index] === '<') {
+        break;
+      }
+      valor = true;
+      string += elementString[index];
+    }
+  }
+}
+
 // Function Feita por THIAGO MARTINS
 const sumSubtotal = () => {
-  const cartItem = document.querySelectorAll('.cart__item');
+  const cartItemSumSubTotal = document.querySelectorAll('.cart__item');
   const totalPrice = document.querySelector('.total-price');
   let subTotal = 0;
-  let valor = false;
-  let string = '';
-  cartItem.forEach((element) => {
-    const elementString = element.outerHTML;
-    for (let index = 0; index < elementString.length; index += 1) {
-      if (elementString[index] === '$' || valor === true) {
-        if (elementString[index] === '<') {
-          break;
-        }
-        valor = true;
-        string += elementString[index];
-      }
-    }
+  cartItemSumSubTotal.forEach((element) => {
+    elementString = element.outerHTML;
+    sumSubtotalFor();
     string = string.replace('$', '');
     subTotal += parseFloat(string);
     string = '';
