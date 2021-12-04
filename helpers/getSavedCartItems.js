@@ -5,23 +5,30 @@ const insertDataSaved = (arrayCartsItemsLi) => {
   });
 };
 
+let getLocalStorage;
+let arrayCartsItemsLi;
+let stringItemLi;
+const getSavedCartItemsForIf = () => {
+  for (let index = 0; index < getLocalStorage.length; index += 1) {
+    if (getLocalStorage[index] === '✄') {
+      arrayCartsItemsLi.push(stringItemLi);
+      stringItemLi = '';
+      index += 1;
+    } else {
+      stringItemLi += getLocalStorage[index];
+    }
+  }
+}
+
 const getSavedCartItems = () => {
   if (localStorage.getItem('cartItems') !== null) {
-    let getLocalStorage = localStorage.getItem('cartItems');
+    getLocalStorage = localStorage.getItem('cartItems');
     if (getLocalStorage === undefined) {
       getLocalStorage = '<li>$0</li>✄';
     }
-    const arrayCartsItemsLi = [];
-    let stringItemLi = '';
-    for (let index = 0; index < getLocalStorage.length; index += 1) {
-      if (getLocalStorage[index] === '✄') {
-        arrayCartsItemsLi.push(stringItemLi);
-        stringItemLi = '';
-        index += 1;
-      } else {
-        stringItemLi += getLocalStorage[index];
-      }
-    }
+    arrayCartsItemsLi = [];
+    stringItemLi = '';
+    getSavedCartItemsForIf();
     insertDataSaved(arrayCartsItemsLi);
   }
 };
