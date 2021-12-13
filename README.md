@@ -1,12 +1,8 @@
-### Termos de acordos
+## Descrição
 
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe.
+Este projeto foi desenvolvido durante o período de Curso da Trybe 🚀
 
-# Boas vindas ao repositório do projeto de Carrinho de Compras!
-
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
-
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir desse repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
+O projeto tem por objetivo a avaliação e prática dos conhecimentos adquiridos na Trybe, visando o cumprimento do requisitos solicitados pela mesma.
 
 ---
 
@@ -16,7 +12,6 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 - [Entregáveis](#entregáveis)
   - [O que será desenvolvido](#o-que-será-desenvolvido)
     - [Protótipo do projeto](#protótipo-do-projeto)
-- [Data de entrega](#data-de-entrega)
 - [Desenvolvimento](#desenvolvimento)
   - [Antes de começar a desenvolver:](#antes-de-começar-a-desenvolver)
   - [Durante o desenvolvimento](#durante-o-desenvolvimento)
@@ -46,8 +41,6 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 ## Habilidades
 
-Nesse projeto, você será capaz de:
-
 - Fazer requisições a uma API *(Application Programming Interface)* do Mercado Livre;
 - Utilizar os seus conhecimentos sobre JavaScript, CSS e HTML;
 - Trabalhar com funções assíncronas;
@@ -70,14 +63,6 @@ Nesse projeto vocês farão um **carrinho de compras** totalmente dinâmico! E o
 Seu projeto deve ter o comportamento parecido com o do gif abaixo quando finalizado, **não se preocupe em replicar o visual, o gif so ilustra o comportamento**:
 
 ![Project Gif](./prototipo.gif)
-
----
-
-# Data de entrega
-
-  - Projeto individual;
-  - Serão `3` dias de projeto.
-  - Data de entrega para avaliação final do projeto: `04/01/2022 - 14:00h`.
 
 ---
 
@@ -127,13 +112,13 @@ Você pode adicionar outros arquivos se julgar necessário. Qualquer dúvida, pr
   * Usando o exemplo anterior: `git push -u origin maria-silva-shopping-cart`
 
 6. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-017-project-shopping-cart/pulls)
+  * Vá até a página de _Pull Requests_ do repositório no GitHub.
   * Clique no botão verde _"New pull request"_
   * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
   * Clique no botão verde _"Create pull request"_
   * Adicione uma descrição para o _Pull Request_, um título claro que o identifique, e clique no botão verde _"Create pull request"_
   * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-017-project-shopping-cart/pulls) e confira que o seu _Pull Request_ está criado
+  * Volte até a página de _Pull Requests_ do repositório e confira que o seu _Pull Request_ está criado.
 
 ---
 
@@ -167,8 +152,6 @@ e de fácil manutenção! Para rodá-los localmente no projeto, execute os coman
   npm run lint
   npm run lint:styles
 ```
-
-Em caso de dúvidas, confira o material do course sobre [ESLint e Stylelint](https://app.betrybe.com/course/real-life-engineer/eslint).
 
 ⚠️ Lembre-se que o seu projeto só será avaliado se estiver passando pelos _checks_ do **linter**.
 
@@ -730,36 +713,4 @@ Normalmente é utilizada alguma forma para mostrar a pessoa usuária que a requi
 
 **O que será avaliado**
 
-- Será avaliado se os testes implementados atigem 100% da cobertura total e 100% da função `getSavedCartItems`
-
----
-
-## Depois de terminar o desenvolvimento
-
-Para sinalizar que o seu projeto está pronto para o _"Code Review"_ dos seus colegas, faça o seguinte:
-
-* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas:
-
-  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**;
-
-  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
-
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`.
-
-Caso tenha alguma dúvida, [aqui tem um video explicativo](https://vimeo.com/362189205).
-
----
-
-## Revisando um pull request
-
-Use o conteúdo sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os _Pull Requests_.
-
----
-
-# Avisos finais
-
-Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência preenchendo o formulário. Leva menos de 3 minutos!
-
-Link: [FORMULÁRIO DE AVALIAÇÃO DE PROJETO](https://be-trybe.typeform.com/to/ZTeR4IbH)
-
-O avaliador automático não necessariamente avalia seu projeto na ordem em que os requisitos aparecem no readme. Isso acontece para deixar o processo de avaliação mais rápido. Então, não se assuste se isso acontecer, ok?
+- Será avaliado se os testes implementados atigem 100% da cobertura total e 100% da função `getSavedCartItems`.
