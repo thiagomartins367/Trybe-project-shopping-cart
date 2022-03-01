@@ -47,7 +47,7 @@ O projeto tem por objetivo a avaliação e prática dos conhecimentos adquiridos
 1. Clone o repositório
   * `git clone git@github.com:THIAGOMARTINS367/Trybe-project-shopping-cart.git`
   * Entre na pasta do repositório na sua máquina:
-    * `sd-017-project-shopping-cart`
+    * `Trybe-project-shopping-cart`
 
 2. Instale as dependências
    * `npm install`
