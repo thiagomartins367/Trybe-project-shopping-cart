@@ -4,7 +4,7 @@ Este projeto foi desenvolvido durante o período de Curso da Trybe 🚀
 
 O projeto tem por objetivo a avaliação e prática dos conhecimentos adquiridos na Trybe, visando o cumprimento do requisitos solicitados pela mesma.
 
-### *ATENÇÃO: Para ver a aplicação funcionando acesse o link no canto direito em "About"*.
+### ATENÇÃO: Para utilizar a aplicação acesse o link no canto direito em "About".
 
 ---
 
